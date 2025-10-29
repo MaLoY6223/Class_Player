@@ -5,7 +5,7 @@
 
 using namespace std;
 
-class Player 
+class Player
 {
 private:
     string name;
@@ -16,26 +16,24 @@ private:
     int* scores;
     int matchesCount;
 
-    int arefmetic;
-
 public:
     Player(string n, string nick, int a, string t, int mCount)
         : name(n),
-        nickname(nick), 
-        age(a), 
-        team(t), 
-        matchesCount(mCount) 
+        nickname(nick),
+        age(a),
+        team(t),
+        matchesCount(mCount)
     {
         scores = new int[matchesCount];
-        for (int i = 0; i < matchesCount; ++i) 
+        for (int i = 0; i < matchesCount; ++i)
         {
             scores[i] = 0;
         }
     }
 
     Player()
-        : name("Íåèçâåñòíî"),
-        nickname("Íåèçâåñòíî"),
+        : name("ÐÐµÐ¸Ð·Ð²ÐµÑÑ‚Ð½Ð¾"),
+        nickname("ÐÐµÐ¸Ð·Ð²ÐµÑÑ‚Ð½Ð¾"),
         age(0),
         team("-"),
         scores(nullptr),
@@ -44,12 +42,12 @@ public:
 
     void setName(const string& n)
     {
-        name = n; 
+        name = n;
     }
 
     void setNickname(const string& nick)
-    { 
-        nickname = nick; 
+    {
+        nickname = nick;
     }
 
     void setAge(int a)
@@ -59,33 +57,33 @@ public:
 
     void setTeam(const string& t)
     {
-        team = t; 
+        team = t;
     }
 
-    void setScores(int* newScores, int count) 
+    void setScores(int* newScores, int count)
     {
         delete[] scores;
         matchesCount = count;
         scores = new int[matchesCount];
-        for (int i = 0; i < matchesCount; ++i) 
+        for (int i = 0; i < matchesCount; ++i)
         {
             scores[i] = newScores[i];
         }
     }
 
-    string getName() const 
+    string getName() const
     {
-        return name; 
+        return name;
     }
 
     string getNickname() const
     {
-        return nickname; 
+        return nickname;
     }
 
     int getAge() const
-    { 
-        return age; 
+    {
+        return age;
     }
 
     string getTeam() const
@@ -93,19 +91,19 @@ public:
         return team;
     }
 
-    int getMatchesCount() const 
+    int getMatchesCount() const
     {
-        return matchesCount; 
+        return matchesCount;
     }
 
     int* getScores() const
     {
-        return scores; 
+        return scores;
     }
 
     void printScores() const
     {
-        cout << "Î÷êè çà ïîñëåäèå " << matchesCount << " ìàò÷åé: ";
+        cout << "ÐžÑ‡ÐºÐ¸ Ð·Ð° Ð¿Ð¾ÑÐ»ÐµÐ´Ð½Ð¸Ðµ " << matchesCount << " Ð¼Ð°Ñ‚Ñ‡ÐµÐ¹: ";
         for (int i = 0; i < matchesCount; i++)
         {
             cout << scores[i] << " ";
@@ -127,33 +125,28 @@ public:
 
     void printInfo() const
     {
-        cout << "Èãðîê: " << name << " (\"" << nickname << "\"), "
-            << age << " ëåò, êîìàíäà: " << team << endl;
+        cout << "Ð˜Ð³Ñ€Ð¾Ðº: " << name << " (\"" << nickname << "\"), "
+            << age << " Ð»ÐµÑ‚, ÐºÐ¾Ð¼Ð°Ð½Ð´Ð°: " << team << endl;
 
         if (matchesCount > 0 && scores != nullptr) {
-            cout << "Î÷êè çà ïîñëåäíèå " << matchesCount << " ìàò÷åé: ";
+            cout << "ÐžÑ‡ÐºÐ¸ Ð·Ð° Ð¿Ð¾ÑÐ»ÐµÐ´Ð½Ð¸Ðµ " << matchesCount << " Ð¼Ð°Ñ‚Ñ‡ÐµÐ¹: ";
             for (int i = 0; i < matchesCount; i++) {
                 cout << scores[i] << " ";
             }
             cout << endl;
-            cout << "Ñðåäíÿÿ àðèôìåòè÷åñêàÿ: " << calculateAverageScore() << endl;
+            cout << "Ð¡Ñ€ÐµÐ´Ð½ÐµÐµ Ð°Ñ€Ð¸Ñ„Ð¼ÐµÑ‚Ð¸Ñ‡ÐµÑÐºÐ¾Ðµ: " << calculateAverageScore() << endl;
         }
     }
 
-    double getAverageScore() const 
+    double getAverageScore() const
     {
-        return calculateAverageScore(); 
+        return calculateAverageScore();
     }
 
-    bool compareByAverage(const Player& a, const Player& b)
-    {
-        return a.getAverageScore() > b.getAverageScore();
-    }
-
-    ~Player() 
+    ~Player()
     {
         delete[] scores;
-        cout << "Îáúåêò " << name << " " << nickname << " ÓÄÀËÅÍ." << endl;
+        cout << "ÐžÐ±ÑŠÐµÐºÑ‚ " << name << " " << nickname << " Ð£Ð”ÐÐ›Ð•Ð." << endl;
     }
 };
 
@@ -162,29 +155,43 @@ int main() {
     SetConsoleOutputCP(1251);
 
     int matchCount;
-    cout << "Ââåäèòå êîëè÷åñòâî ìàò÷åé: ";
+    cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ ÐºÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ Ð¼Ð°Ñ‚Ñ‡ÐµÐ¹: ";
     cin >> matchCount;
 
-    int* matchScores = new int[matchCount];
-    for (int i = 0; i < matchCount; ++i) 
+    Player p1("Ð¹Ñ†ÑƒÐºÐµÐ½", "Ñ„Ñ‹Ð²Ð°Ð¿", 16, "ÑÑÑ‡Ñ„Ñ", matchCount);
+    Player p2("hfnncjurf", "zxc", 15, "gbgb", matchCount);
+    Player p3("qwerty", "adsf", 14, "Svdvny", matchCount);
+
+    cout << "Ð’Ð²Ð¾Ð´ Ð¾Ñ‡ÐºÐ¾Ð² Ð´Ð»Ñ " << p1.getName() << endl;
+    int* scores1 = new int[matchCount];
+    for (int i = 0; i < matchCount; ++i)
     {
-        cout << "Î÷êè çà ìàò÷ " << i + 1 << ": ";
-        cin >> matchScores[i];
+        cout << "ÐžÑ‡ÐºÐ¸ Ð·Ð° Ð¼Ð°Ñ‚Ñ‡ " << i + 1 << ": ";
+        cin >> scores1[i];
     }
+    p1.setScores(scores1, matchCount);
 
-    Player p1("qwerty", "asdfg", 16, "zxc", matchCount);
-    p1.setScores(matchScores, matchCount);
+    cout << "Ð’Ð²Ð¾Ð´ Ð¾Ñ‡ÐºÐ¾Ð² Ð´Ð»Ñ " << p2.getName() << endl;
+    int* scores2 = new int[matchCount];
+    for (int i = 0; i < matchCount; ++i)
+    {
+        cout << "ÐžÑ‡ÐºÐ¸ Ð·Ð° Ð¼Ð°Ñ‚Ñ‡ " << i + 1 << ": ";
+        cin >> scores2[i];
+    }
+    p2.setScores(scores2, matchCount);
+
+    cout << "Ð’Ð²Ð¾Ð´ Ð¾Ñ‡ÐºÐ¾Ð² Ð´Ð»Ñ " << p3.getName() << endl;
+    int* scores3 = new int[matchCount];
+    for (int i = 0; i < matchCount; ++i)
+    {
+        cout << "ÐžÑ‡ÐºÐ¸ Ð·Ð° Ð¼Ð°Ñ‚Ñ‡ " << i + 1 << ": ";
+        cin >> scores3[i];
+    }
+    p3.setScores(scores3, matchCount);
+
     p1.printInfo();
-
-    Player p2("asdfg", "qwert", 15, "zc", matchCount);
-    p2.setScores(matchScores, matchCount);
     p2.printInfo();
-
-    Player p3("fdsvfvdfv", "asdscc", 14, "xc", matchCount);
-    p3.setScores(matchScores, matchCount);
     p3.printInfo();
-
-    delete[] matchScores;
 
     return 0;
 }
